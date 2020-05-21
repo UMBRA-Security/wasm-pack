@@ -18,7 +18,7 @@ struct Wasm32Check {
 
 impl fmt::Display for Wasm32Check {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let target = "wasm32-unknown-unknown";
+        let target = "wasm32-wasi";
 
         if !self.found {
             let rustup_string = if self.is_rustup {
@@ -82,7 +82,7 @@ fn get_rustc_sysroot() -> Result<PathBuf, Error> {
 
 /// Checks if the wasm32-unknown-unknown is present in rustc's sysroot.
 fn is_wasm32_target_in_sysroot(sysroot: &PathBuf) -> bool {
-    let wasm32_target = "wasm32-unknown-unknown";
+    let wasm32_target = "wasm32-wasi";
 
     let rustlib_path = sysroot.join("lib/rustlib");
 
